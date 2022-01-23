@@ -76,9 +76,9 @@
 
 
 <footer>
-    <div class="footermenu p-3 p-md-5 ">
+    <div class="p-3 footermenu p-md-5 ">
         <div class="container">
-            <div class="row  d-flex justify-between align-items-center ">
+            <div class="justify-between row d-flex align-items-center ">
                 <div class="col-md-5 col-sm-4 ">
                     <!-- // -->
                     <div class="footer-logo ">
@@ -88,7 +88,7 @@
                         <p>{{$setting->short_des ?? ''}}</p>
                     </div>
                 </div>
-                <div class=" col col-md-7  d-md-flex  justify-content-between">
+                <div class=" col col-md-7 d-md-flex justify-content-between">
                     <div class="col-md-3 col-sm-4">
                         <strong class="text-white">Contact Us</strong><br><br>
                         <div class="footer-address">
@@ -120,7 +120,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 pb-5 pb-md-0 ">
+                    <div class="pb-5 col-md-4 pb-md-0 ">
                         <div class="social-media d-flex justify-content-between d-md-block">
 
                             @if($setting->facebook)
@@ -168,9 +168,9 @@
     </div>
 
     <!-- copyright -->
-    <!-- <div class="text-light text-center py-4" style="background: #1e1e1e;">Copyright &copy 2021 Shopritefoodbd.com All Right Reserved <a href="https://branexit.com/" style="color: #F8432B;">Branexit</a></div> -->
-<div class="d-md-none fixed-bottom text-dark bg-white footer_bottom">
-    <div class="d-flex justify-content-around p-3">
+    <!-- <div class="py-4 text-center text-light" style="background: #1e1e1e;">Copyright &copy 2021 Shopritefoodbd.com All Right Reserved <a href="https://branexit.com/" style="color: #F8432B;">Branexit</a></div> -->
+<div class="bg-white d-md-none fixed-bottom text-dark footer_bottom">
+    <div class="p-3 d-flex justify-content-around">
         <i class="fas fa-home"></i>
         <i class="fas fa-shopping-cart"></i>
         <i class="fas fa-id-card-alt"></i>
@@ -187,7 +187,7 @@
 
         <div class="card">
 
-            <div class="card-header bg-white">
+            <div class="bg-white card-header">
 
                 <div class="row">
                     <div class="col-md-6 col-6">
@@ -204,7 +204,7 @@
 
 
 
-            <div class="card-body p-0">
+            <div class="p-0 card-body">
 
                <div id="cartshow"></div>
 
@@ -214,10 +214,10 @@
 
 
 
-                <div class="card-footer mt-3" style="position: absolute; bottom: 0; width: 100%;">
+                <div class="mt-3 card-footer" style="position: absolute; bottom: 0; width: 100%;">
 
 
-                    <div class="row mt-2">
+                    <div class="mt-2 row">
                         <div class="col-md-6 col-6">
                             Total
                         </div>
@@ -257,6 +257,8 @@
 <script type="text/javascript" src="{{ asset('public/fontdev/') }}/js/uikit.min.js"></script>
 <script type="text/javascript" src="{{ asset('public/fontdev/') }}/js/uikit-icons.min.js"></script>
 <script type="text/javascript" src="{{ asset('public/assets/') }}/js/slick.min.js"></script>
+
+
 
 <script src="{{ asset('public/assets/js/jquery.elevateZoom-3.0.8.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('public/fontdev/') }}/js/main.js"></script>

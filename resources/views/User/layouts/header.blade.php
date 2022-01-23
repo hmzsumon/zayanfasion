@@ -24,6 +24,7 @@ $setting = DB::table('settings')->first();
 
   <link rel="stylesheet" type="text/css" href="{{ asset('public/fontdev/') }}/css/uikit.min.css">
   <link rel="stylesheet" type="text/css" href="{{ asset('public/fontdev/') }}/css/slick-theme.css">
+
   <link rel="stylesheet" type="text/css" href="{{ asset('public/fontdev/') }}/style.css">
 
   <link rel="stylesheet" type="text/css" href="{{ asset('public/fontdev') }}/css/toast.css">
@@ -32,13 +33,13 @@ $setting = DB::table('settings')->first();
 
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
-  
+
 </head>
 <body onload="myfunctions();" id="body">
   <div id="load"></div>
 
   <div uk-sticky>
-    <div class="col-md-12 topbar pt-2 pb-2 d-none d-lg-block">
+    <div class="pt-2 pb-2 col-md-12 topbar d-none d-lg-block">
       <div class="container">
         <div class="row align-items-center">
           <div class="col">
@@ -62,16 +63,16 @@ $setting = DB::table('settings')->first();
      </div>
    </div><!---------End Topbar------->
 
-   <div class="col-md-12 menubarsection pb-2">
+   <div class="pb-2 col-md-12 menubarsection">
      <div class="container">
       <div class="row align-items-center">
 
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-7 order-1 ">
+        <div class="order-1 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-7 ">
          <a href="{{ url('/') }}"><img src="{{asset('/public/siteImage')}}/{{$setting->logo}}" class="img-fluid"></a>
           <!-- <span class="text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">&nbsp;&nbsp;<i class="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;@if(isset($getlocation)){{ $getlocation }}@else Chattogram @endif</span> -->
        </div>
 
-       <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 order-3">
+       <div class="order-3 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
         <form method="get" action="{{ url('/searchproducts') }}">
           @csrf
           <div class="input-group">
@@ -85,11 +86,11 @@ $setting = DB::table('settings')->first();
     </div>
 
 
-    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-5 order-2 order-md-3">
+    <div class="order-2 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-5 order-md-3">
      <div class="float-end text-dark">
        <span type="button" class="position-relative" uk-toggle="target: #offcanvas-none">
         <i class="bi bi-cart3 text-dark"></i>
-        <span class="position-absolute top-0 start-120 translate-middle badge rounded-pill bg-warning">
+        <span class="top-0 position-absolute start-120 translate-middle badge rounded-pill bg-warning">
           <span id="cartqunt">0</span>
         </span>
       </span>
@@ -123,7 +124,7 @@ $setting = DB::table('settings')->first();
             SELECT YOUR DELIVERY LOCATION
           </strong>
 
-          <form class="mt-4 formback p-3" method="get" action="{{ url('/Location') }}">
+          <form class="p-3 mt-4 formback" method="get" action="{{ url('/Location') }}">
             @csrf
             <div class="row align-items-center">
               <div class="form-group col-md-4">
@@ -145,7 +146,7 @@ $setting = DB::table('settings')->first();
                 </select>
               </div>
               <div class="form-group col-md-4">
-               <input type="submit" name="" class="btn btn-success btn-sm w-100 rounded">
+               <input type="submit" name="" class="rounded btn btn-success btn-sm w-100">
              </div>
            </div>
          </form>
@@ -171,7 +172,7 @@ $setting = DB::table('settings')->first();
     <span>Categories</span>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body sidemenu p-0">
+  <div class="p-0 offcanvas-body sidemenu">
     	<ul class="uk-nav-parent-icon" uk-nav duration='800'>
 
 
@@ -207,7 +208,7 @@ $setting = DB::table('settings')->first();
 		@endforeach
 		@endif
 
-<!-- 
+<!--
 			<li><a href="{{ url('hugesaving') }}"><img src="{{ asset('public/fontdev/') }}/img/i1.webp" class="img-fluid">&nbsp;&nbsp;Huge Saving</a></li>
 		<li><a href="{{ url('ordersavemore') }}"><img src="{{ asset('public/fontdev/') }}/img/i2.webp" class="img-fluid">&nbsp;&nbsp;Order more save more</a></li>
 		<li><a href="{{ url('dicountoffer') }}"><img src="{{ asset('public/fontdev/') }}/img/i3.webp" class="img-fluid">&nbsp;&nbsp;Special Discount </a></li>

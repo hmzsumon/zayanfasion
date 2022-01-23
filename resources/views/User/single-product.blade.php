@@ -35,7 +35,7 @@ $setting = DB::table('settings')->first();
         border:1px solid #ddd;
         border-radius:4px;
         display: inline-block;
-        vertical-align: middle; 
+        vertical-align: middle;
     }
 
     .select_color{
@@ -77,32 +77,33 @@ $setting = DB::table('settings')->first();
     <div class="container">
         <div class="row">
 
-            
+
             <!----------End Sidebar-------->
 
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-5">
-                <div class="col-md-12 mt-3 p-3 bg-white breadcumbs">
+            <div class="pb-5 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="p-3 mt-3 bg-white col-md-12 breadcumbs">
                     <li><a href="{{ url('/') }}"><i class="bi bi-house-fill"></i>&nbsp;&nbsp;Home</a></li>
                     <li><i class="bi bi-chevron-right"></i></li>
                     <li>{{ $viewproduct->product_name }}</li>
                 </div>
 
 
-                <div class="col-md-12 mt-4 single bg-white rounded pb-4 p-3 p-lg-0">
+                <div class="p-3 pb-4 mt-4 bg-white rounded col-md-12 single p-lg-0">
                     <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-4">
+                        <div class="p-4 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 
                             <div class="simpleLens-gallery-container" id="demo-1">
-                                <div class="simpleLens-container border" style="width: 100%;">
-                                    <div class="simpleLens-big-image-container p-2">
+                                <!-- zakaria -->
+                                <div class="border simpleLens-container" style="width: 100%;">
+                                    <div class="p-2 simpleLens-big-image-container">
                                         <a class="simpleLens-lens-image" data-lens-image="{{ asset('public/productImage') }}/{{ $viewproduct->image }}">
                                             <img src="{{ asset('public/productImage') }}/{{ $viewproduct->image }}" class="simpleLens-big-image product-image-zoom">
                                         </a>
-                                        
+
                                     </div>
                                 </div>
 
-                                <div class="product-thumb-gallery">
+                                <div class="product-thumb-gallery bg-info">
                                     @foreach($product_image as $img)
                                     <div class="product-thumb-gallery-item">
                                         <!-- <img src="{{ asset('public/productImage') }}/{{ $viewproduct->image }}" alt=""> -->
@@ -120,9 +121,9 @@ $setting = DB::table('settings')->first();
                             <strong>{{ $viewproduct->product_name }}</strong><br>
                             <span><b>SKU:</b> {{ $viewproduct->product_id }}</span><br>
                             @if($viewproduct->stock_status == 1)
-                            <span class="bg-success text-light rounded" style="padding: 2px 10px; font-size: 13px;">Stock Available</span>
+                            <span class="rounded bg-success text-light" style="padding: 2px 10px; font-size: 13px;">Stock Available</span>
                             @else
-                            <span class="bg-danger text-light rounded" style="padding: 2px 10px; font-size: 13px;">Stock Out</span>
+                            <span class="rounded bg-danger text-light" style="padding: 2px 10px; font-size: 13px;">Stock Out</span>
                             @endif
                             <br><br>
 
@@ -132,13 +133,13 @@ $setting = DB::table('settings')->first();
                             <del>৳ {{ number_format($viewproduct->sale_price, 2, '.', ',') }}</del>
                             @endif
                             <br>
-                                
+
                             @if(count($product_color)>0)
-                            <div class="color_select mt-3 mb-3">
+                            <div class="mt-3 mb-3 color_select">
                                 <div class="row" style="padding-right: 40px;">
                                     <div class="col-md-12">
                                         <p style="margin: 0"><b>Color : </b></p>
-                                        <div class="row mt-2">
+                                        <div class="mt-2 row">
                                             @foreach($product_color as $color)
                                             <div class="col-md-2">
                                                 <div class="select_color" data-id="{{ $color->id }}">{{$color->color}}</div>
@@ -146,17 +147,17 @@ $setting = DB::table('settings')->first();
                                             @endforeach
                                             <input  type="hidden" name="color" id="customer_selected_color" style="text-align: left;">
                                         </div>
-                                    </div>  
-                                </div>   
+                                    </div>
+                                </div>
                             </div>
                             @endif
-                            
+
                             @if(count($product_size)>0)
-                            <div class="color_select mt-3 mb-3">
+                            <div class="mt-3 mb-3 color_select">
                                 <div class="row" style="padding-right: 40px;">
                                     <div class="col-md-12">
                                         <p style="margin: 0"><b>Size : </b></p>
-                                        <div class="row mt-2">
+                                        <div class="mt-2 row">
                                             @foreach($product_size as $size)
                                             <div class="col-md-2">
                                                 <div class="select_size"  data-id="{{ $size->id }}" style="padding: 6px;border: 1px solid #c4c4c4;text-align: center;cursor: pointer;">{{$size->size}}</div>
@@ -164,8 +165,8 @@ $setting = DB::table('settings')->first();
                                             @endforeach
                                             <input  type="hidden" name="size" id="customer_selected_size" style="text-align: left;">
                                         </div>
-                                    </div>  
-                                </div>   
+                                    </div>
+                                </div>
                             </div>
                             @endif
 
@@ -177,10 +178,10 @@ $setting = DB::table('settings')->first();
                                 <p style="margin: 0;font-size: 19px;font-weight: 600;">{{ $setting->number_2 ?? '' }}</p>
 
                                 <h5 style="margin:0;margin-top: 20px;"><b>Delivery Charge: Inside Dhaka - {{$setting->inside_dhaka ?? ''}} Tk. / Outside Dhaka - {{$setting->outside_dhaka ?? ''}} Tk.</b></h5>
-                            
-                                
 
-                                <div class="quentity mt-5">
+
+
+                                <div class="mt-5 quentity">
                                     <label>Quantity</label><br>
                                     <!-- <input type="number" min="{{ $viewproduct->min_qunt }}" name="Quantity-{{ $viewproduct->id }}" id="Quantity-{{ $viewproduct->id }}" value="{{ $viewproduct->min_qunt }}"> -->
 
@@ -197,7 +198,7 @@ $setting = DB::table('settings')->first();
                                 <div class="mt-5">
                                     <div class="col-md-12" style="padding-right: 20px;">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="mb-2 col-md-6">
                                                 @if (Auth('guest')->user())
                                                 <a href="{{ url('/Checkout') }}"><button class="cart w-100" style="background: #1b99bf;"><i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;&nbsp;Buy Now</button></a>
                                                 @else
@@ -205,7 +206,7 @@ $setting = DB::table('settings')->first();
                                                 @endif
                                             </div>
                                             <div class="col-md-6">
-                                                
+
                                                 @if($viewproduct->stock_status == 1)
                                                 <button class="cart w-100" onclick="AddCart('{{ $viewproduct->id }}')"><i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp;&nbsp;Add To Cart</button>
                                                 @else
@@ -213,13 +214,13 @@ $setting = DB::table('settings')->first();
                                                 @endif
 
                                             </div>
-                                            
+
                                         </div>
-                                        
-                                        
+
+
                                     </div>
                                 </div>
-                            
+
 
                             <div class="mt-4">
                                 <span>Share With :</span><br>
@@ -240,7 +241,7 @@ $setting = DB::table('settings')->first();
 
 
 
-                <div class="col-md-12 bg-white p-0 p-4 details mt-4">
+                <div class="p-0 p-4 mt-4 bg-white col-md-12 details">
 
                     <ul class="nav nav-tabs" id="myTab">
                         <li class="nav-item">
@@ -249,7 +250,7 @@ $setting = DB::table('settings')->first();
                         <li class="nav-item">
                             <a href="#Review" class="nav-link" data-bs-toggle="tab">Review</a>
                         </li>
-                        
+
                     </ul>
 
                     <div class="tab-content">
@@ -261,7 +262,7 @@ $setting = DB::table('settings')->first();
                         <div class="tab-pane fade" id="Review">
                             <div class="rating_details" style="border-bottom: 1px solid #dedede; padding: 25px;">
                                 <div class="row">
-                                    
+
                                     <div class="col-md-6" style="text-align: center;">
                                         @if($avg_rating > 0)
                                         <h1 style="margin: 0;">{{ substr($avg_rating, 0, 3) }}</h1>
@@ -306,7 +307,7 @@ $setting = DB::table('settings')->first();
                                             <span class="fa fa-star"></span>
                                             <span class="fa fa-star"></span>
                                         @endif
-                                        
+
                                         <p style="margin: 0;">Average Rating based on {{$total_rating ?? 0}} reviews.</p>
                                     </div>
                                     <div class="col-md-6">
@@ -373,12 +374,12 @@ $setting = DB::table('settings')->first();
                             </div>
 
                             <div class="row">
-                                
+
                                 <div class="col-md-6">
 
                                     @if(count($product_ratings)>0)
                                         @foreach($product_ratings as $product_rating)
-                                        <?php  
+                                        <?php
                                             $guest = DB::table('guest')->where('id', $product_rating->guest_id)->first();
                                         ?>
                                         <div class="comments" style="padding: 14px;padding: 14px;border: 1px solid #e4e4e4;">
@@ -482,7 +483,7 @@ $setting = DB::table('settings')->first();
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -490,7 +491,7 @@ $setting = DB::table('settings')->first();
 
 
 
-                <div class="col-md-12 mt-5 cathead">
+                <div class="mt-5 col-md-12 cathead">
                     <strong>Related Products</strong>
                     <div class="row">
 
@@ -502,12 +503,12 @@ $setting = DB::table('settings')->first();
 
 
 
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 mt-4">
-                            <div class="bg-white product p-3">
+                        <div class="mt-4 col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6">
+                            <div class="p-3 bg-white product">
                                 <center>
                                     <a href="{{ url('product') }}/{{ $productname }}/{{ $r->product_id }}"><img src="{{ asset('public/productImage') }}/{{ $r->image }}" alt=""></a>
-                                    <div class="text-dark fw-bold productname mt-3 text-center">
-                                        
+                                    <div class="mt-3 text-center text-dark fw-bold productname">
+
                                         <div class="productname_height">
                                             {{ substr($r->product_name, 0, 50) }}
                                         </div>
