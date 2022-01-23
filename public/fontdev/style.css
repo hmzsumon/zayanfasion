@@ -1,7 +1,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
 
 :root {
-    --color-theme: #1B99BF;
+    --color-theme: #1b99bf;
     /*--color-theme: #fcb800;*/
     --color-text: #333;
     --color-text-inverse: #eee;
@@ -15,7 +15,7 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     overflow-x: hidden;
     background: #fafafacc;
 }
@@ -51,7 +51,7 @@ img {
     filter: saturate(1.2) !important;
 }
 
-.uk-grid>* {
+.uk-grid > * {
     padding-right: 15px !important;
     padding-left: 0;
 }
@@ -64,11 +64,11 @@ img {
     padding: 15px;
 }
 
-.uk-nav-parent-icon>.uk-parent>a::after {
+.uk-nav-parent-icon > .uk-parent > a::after {
     content: "\f054";
     width: 1.5em;
     height: 1.5em;
-    font-family: 'FontAwesome';
+    font-family: "FontAwesome";
     background: none !important;
     font-size: 11px;
     position: absolute;
@@ -76,7 +76,7 @@ img {
     top: 9px;
 }
 
-.uk-nav-parent-icon>.uk-parent.uk-open>a::after {
+.uk-nav-parent-icon > .uk-parent.uk-open > a::after {
     content: "\f078";
 }
 
@@ -134,9 +134,11 @@ img {
     font-weight: 900;
 }
 
-.button--primary {}
+.button--primary {
+}
 
-.button--secondary {}
+.button--secondary {
+}
 
 .button:hover {
     color: #fff;
@@ -447,9 +449,11 @@ body::-webkit-scrollbar-thumb {
 .box {
     box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
     border-radius: 5px;
-    background-image: radial-gradient(circle 1224px at 10.6% 8.8%,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(153, 202, 251, 1) 100.2%);
+    background-image: radial-gradient(
+        circle 1224px at 10.6% 8.8%,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(153, 202, 251, 1) 100.2%
+    );
 }
 
 .box i {
@@ -980,9 +984,9 @@ body::-webkit-scrollbar-thumb {
     font-size: 15px !important;
 }
 
-
 /* * social media */
-.social-media {}
+.social-media {
+}
 
 .social-media__item {
     color: #ffffff;
@@ -1159,16 +1163,18 @@ span.position-absolute.top-0.start-120.translate-middle.badge.rounded-pill.bg-wa
     background: #032e52;
     width: 100%;
     margin-top: 5rem;
-    padding: 4rem;
+    /* padding: 4rem 0px; */
 }
 
-.footer-logo {}
+.footer-logo {
+}
 
-.footer-logo a {}
+.footer-logo a {
+}
 
 .footer-logo a img {
     width: 100%;
-    max-width: 200px;
+    max-width: 150px;
 }
 
 .footer-logo p {
@@ -1176,7 +1182,8 @@ span.position-absolute.top-0.start-120.translate-middle.badge.rounded-pill.bg-wa
     color: #fff;
 }
 
-.footer-address {}
+.footer-address {
+}
 
 .footer-address ul {
     padding: 0px;
@@ -1190,7 +1197,8 @@ span.position-absolute.top-0.start-120.translate-middle.badge.rounded-pill.bg-wa
     padding: 0px;
 }
 
-.footer-address ul li div {}
+.footer-address ul li div {
+}
 
 .footer-address ul li .footer-address-icon {
     margin-right: 16px;
@@ -1200,13 +1208,15 @@ span.position-absolute.top-0.start-120.translate-middle.badge.rounded-pill.bg-wa
     color: #fff;
 }
 
-.footer-address ul li .footer-address-info {}
+.footer-address ul li .footer-address-info {
+}
 
 .footer-address ul li .footer-address-info p {
     color: #fff;
 }
 
-.footer-col-2-text-content {}
+.footer-col-2-text-content {
+}
 
 .footer-col-2-text-content ul {
     padding: 0px;
@@ -1218,9 +1228,11 @@ span.position-absolute.top-0.start-120.translate-middle.badge.rounded-pill.bg-wa
     padding: 4px 0px;
 }
 
-.footer-col-2-text-content ul li a {}
+.footer-col-2-text-content ul li a {
+}
 
-.footer-col-3-text-content {}
+.footer-col-3-text-content {
+}
 
 .footer-col-3-text-content ul {
     padding: 0px;
@@ -1232,7 +1244,8 @@ span.position-absolute.top-0.start-120.translate-middle.badge.rounded-pill.bg-wa
     padding: 4px 0px;
 }
 
-.footer-col-3-text-content ul li a {}
+.footer-col-3-text-content ul li a {
+}
 
 @media (max-width: 1200px) {
     .container {
@@ -1264,59 +1277,72 @@ span.position-absolute.top-0.start-120.translate-middle.badge.rounded-pill.bg-wa
     }
 }
 
-
-
 .productname_height {
     height: 65px;
 }
 
 /* Three column layout */
 .side {
-  float: left;
-  width: 15%;
-  margin-top:10px;
+    float: left;
+    width: 15%;
+    margin-top: 10px;
 }
 
 .middle {
-  margin-top:10px;
-  float: left;
-  width: 70%;
+    margin-top: 10px;
+    float: left;
+    width: 70%;
 }
 
 /* Place text to the right */
 .right {
-  text-align: right;
+    text-align: right;
 }
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* The bar container */
 .bar-container {
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
 }
 
 /* Individual bars */
-.bar-5 {height: 18px; background-color: #ffc107;}
-.bar-4 {height: 18px; background-color: #ffc107;}
-.bar-3 {height: 18px; background-color: #ffc107;}
-.bar-2 {height: 18px; background-color: #ffc107;}
-.bar-1 {height: 18px; background-color: #ffc107;}
-
+.bar-5 {
+    height: 18px;
+    background-color: #ffc107;
+}
+.bar-4 {
+    height: 18px;
+    background-color: #ffc107;
+}
+.bar-3 {
+    height: 18px;
+    background-color: #ffc107;
+}
+.bar-2 {
+    height: 18px;
+    background-color: #ffc107;
+}
+.bar-1 {
+    height: 18px;
+    background-color: #ffc107;
+}
 
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 400px) {
-  .side, .middle {
-    width: 100%;
-  }
-  .right {
-    display: none;
-  }
+    .side,
+    .middle {
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
 }

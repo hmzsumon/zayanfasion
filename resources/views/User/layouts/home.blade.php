@@ -10,6 +10,27 @@
 
 @endphp
 
+
+<style>
+    .item_card {
+       display: grid;
+       grid-gap: 1rem 0px;
+    }
+
+    .item_card .card_footer{
+        align-self: end;
+    }
+
+    .date_container {
+        display: flex;
+        gap: 10px;
+        font-weight: 600;
+        color: red;
+
+    }
+</style>
+
+
 <main>
     <div class="container">
         <div class="row">
@@ -77,7 +98,7 @@
                                     <img src="{{ asset('public/fontdev/') }}/img/demo.jpg" class="img-fluid">
                                     @endif
 
-                                
+
                                     <div class="text-dark fw-bold">{{ $i->item_name}}</div>
                                 </a>
                             </center>
@@ -125,42 +146,52 @@
                     @endphp
 
                     @if(count($flashdeal_product)>0)
-                    <div class="col-md-12 mt-5" style="background: {{ $flashdeal->background_color  }};padding: 5px;">
-                        <div class="head">
-                            <strong style="color: {{ $flashdeal->text_color  }}">{{ $flashdeal->title }}</strong>
+                    <div class="col-md-12 mt-5 " style="background: {{ $flashdeal->background_color  }};padding: 5px;">
+                     <!-- Zakaria -->
+                        <div class="d-flex justify-content-between align-items-center px-2 ">
+                            <h3 class=" mt-3" style="color: {{ $flashdeal->text_color  }}">{{ $flashdeal->title }}</h3>
 
-                                <?php  
+                                <?php
                                     $t1 = Carbon\Carbon::now();
                                     $t2 = $flashdeal->end_date;
                                     $diff = $t1->diff($t2);
                                 ?>
-                            
-                                <div class="float-end">
 
-                                        
-                                    
-                                    @if($diff->d > 0)
+                                <div class="">
+                                    <!-- @if($diff->d > 0)
                                     <span style="color: red; font-size: 30px; font-weight: 600;">{{$diff->d}} </span>
-                                    <span>/</span>
+                                    <span>:</span>
                                     @endif
 
                                     @if($diff->h > 0)
                                     <span  style="color: red; font-size: 30px; font-weight: 600;">{{$diff->h}} </span>
-                                    <span>/ </span>
+                                    <span>:</span>
                                     @endif
 
                                     <span  style="color: red; font-size: 30px; font-weight: 600;">{{$diff->i}} </span>
-                                    <span>/ </span>
-                                    <span  style="color: red; font-size: 30px; font-weight: 600;">{{$diff->s}}</span>
-                             
-                                    
+                                    <span>: </span>
+                                    <span  style="color: red; font-size: 30px; font-weight: 600;">{{$diff->s}}</span> -->
+                                    <div class="date_container">
+                                        <div class="d-flex flex-column  align-items-center">
+                                            <span id="h">20</span>
+                                            <span>Hours</span>
+                                        </div>
+                                        <div>:</div>
+                                        <div class="d-flex flex-column  align-items-center">
+                                            <span id="m">10</span>
+                                            <span>Minutes</span>
+                                        </div>
+                                        <div>:</div>
+                                        <div class="d-flex flex-column  align-items-center">
+                                            <span id="s">30</span>
+                                            <span>Seconds</span>
+                                        </div>
+                                    </div>
                                 </div>
-
-                           
                         </div>
 
-                        <div class="uk-position-relative uk-visible-toggle w-100 py-3 rounded" tabindex="-1" uk-slider>
-                            <div class="row">
+                        <div class="uk-position-relative uk-visible-toggle  w-100 rounded" tabindex="-1" uk-slider>
+                            <div class="row ">
                                 @foreach($flashdeal_product as $p)
                                     @php
                                         $product = DB::table('product_productinfo')->where('id',$p->product_id)->orderBy('id','DESC')->first();
@@ -168,9 +199,9 @@
                                         $productname=str_replace(["%","/"," "],"-",$product->product_name);
                                     @endphp
 
-                                    
 
-                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 mt-4" style="width: 240px;">
+
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
                                     <div class="bg-white product p-3">
                                         <center>
                                             <a href="{{ url('product') }}/{{ $productname }}/{{ $product->product_id }}"><img src="{{ asset('public/productImage') }}/{{ $product->image }}" alt=""></a>
@@ -187,7 +218,7 @@
                                         </center>
                                     </div>
                                 </div>
-                                
+
                                 @endforeach
 
 
@@ -245,7 +276,9 @@
 
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 mt-4" style="width: 240px;">
                             <div class="bg-white product p-3">
-                                <center>
+
+
+                                <div class=" item_card ">
                                     <a href="{{ url('product') }}/{{ $productname }}/{{ $p->product_id }}"><img src="{{ asset('public/productImage') }}/{{ $p->image }}" alt=""></a>
                                     <div class="text-dark fw-bold productname mt-3 text-center">
                                         <div class="productname_height">
@@ -256,8 +289,10 @@
                                         <del>৳ {{ number_format($p->sale_price, 2, '.', ',') }}</del>
                                         @endif
                                     </div>
-                                    <div class="mt-2"><button class="btn btn-success btn-sm" onclick="AddCart('{{ $p->id }}')">Add To Cart</button></div>
-                                </center>
+                                    <div class=" card_footer">
+                                        <button class="btn btn-success btn-sm" onclick="AddCart('{{ $p->id }}')">Add To Cart</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -284,7 +319,44 @@
     </section>
 </main>
 
+<!-- Zakaria Timer -->
+<script type="text/javascript">
+    let time_d = "{{ $diff->d }}";
+    let time_h= "{{ $diff->h}}";
+    let time_m= "{{ $diff->i }}";
+    let time_s= "{{ $diff->s }}";
 
+    function timer() {
+        if(time_d==0) {
+            time_h=24;
+        }
+        if(time_s==0){
+            time_s=59;
+            time_m--;
+        }else{
+            time_s--;
+        }
+
+        if(time_m==0){
+            time_m=59;
+            time_h--;
+        }
+
+        if(time_h==0){
+            time_h=0;
+            time_m=0;
+            time_s=0;
+        }
+        document.getElementById("h").innerHTML = time_h;
+        document.getElementById("m").innerHTML = time_m;
+        document.getElementById("s").innerHTML = time_s;
+        setTimeout(timer, 1000);
+    }
+    timer();
+
+    console.log(time_d);
+
+</script>
 
 
 @endsection

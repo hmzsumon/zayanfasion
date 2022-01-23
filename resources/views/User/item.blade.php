@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-none d-lg-block"> 
+			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 d-none d-lg-block">
 				@include('User.layouts.sidmenu')
 			</div><!----------End Sidebar-------->
 
@@ -30,7 +30,7 @@
 
 							@if(isset($product_cat))
 							@foreach($product_cat as $p)
-							@php 
+							@php
 							$productname=str_replace(["%","/"," "],"-",$p->product_name)
 							@endphp
 
@@ -68,7 +68,7 @@
 
 			</div>
 
-			@else	
+			@else
 
 			<div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12 pt-5">
 				<div class="container padd">
@@ -84,7 +84,7 @@
 
 
 
-			
+
 		</div>
 	</div>
 </div>

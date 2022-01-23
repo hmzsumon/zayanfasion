@@ -31,7 +31,7 @@
   background-repeat:no-repeat;
   background-size:cover;
   border-radius: 5px 0px 0px 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #myBtns:hover {
@@ -52,6 +52,14 @@
     font-size: 14px;
 }
 
+.footer_bottom {
+    font-size: 1.4rem;
+    border-top: 2px solid gray;
+}
+.footer_bottom  i {
+    cursor: pointer;
+}
+
 
 </style>
 
@@ -59,94 +67,97 @@
 
 
 
-<?php  
+<?php
 
     $setting = DB::table('settings')->first();
-    
+
 ?>
 
 
 
 <footer>
-    <div class="footermenu">
+    <div class="footermenu p-3 p-md-5 ">
         <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-sm-4">
+            <div class="row  d-flex justify-between align-items-center ">
+                <div class="col-md-5 col-sm-4 ">
                     <!-- // -->
-                    <div class="footer-logo">
+                    <div class="footer-logo ">
                         <!-- <strong>POPULAR SEARCHES</strong><br><br> -->
-                        <a href="{{ url('/') }}"><img src="{{asset('/public/siteImage')}}/{{$setting->logo}}" class="img-fluid"></a>
+                        <a href="{{ url('/') }}"><img src="{{asset('/public/siteImage')}}/{{$setting->logo}}" class="img-fluid"
+                        ></a>
                         <p>{{$setting->short_des ?? ''}}</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-4">
-                    <strong class="text-white">Contact Us</strong><br><br>
-                    <div class="footer-address">
-                        <ul>
-                            <li>
-                                <div class="footer-address-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="footer-address-info">
-                                    <p>{{$setting->address ?? ''}}</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="footer-address-icon">
-                                    <i class="fas fa-phone-volume"></i>
-                                </div>
-                                <div class="footer-address-info">
-                                    <p><a class="text-white" href="tel:{{$setting->hotline}}">{{$setting->hotline}}</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="footer-address-icon">
-                                    <i class="far fa-envelope"></i>
-                                </div>
-                                <div class="footer-address-info">
-                                    <p><a class="text-white" href="mailto:{{$setting->email}}">{{$setting->email}}</a></p>
-                                </div>
-                            </li>
-                        </ul>
+                <div class=" col col-md-7  d-md-flex  justify-content-between">
+                    <div class="col-md-3 col-sm-4">
+                        <strong class="text-white">Contact Us</strong><br><br>
+                        <div class="footer-address">
+                            <ul>
+                                <li>
+                                    <div class="footer-address-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="footer-address-info">
+                                        <p>{{$setting->address ?? ''}}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="footer-address-icon">
+                                        <i class="fas fa-phone-volume"></i>
+                                    </div>
+                                    <div class="footer-address-info">
+                                        <p><a class="text-white" href="tel:{{$setting->hotline}}">{{$setting->hotline}}</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="footer-address-icon">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                    <div class="footer-address-info">
+                                        <p><a class="text-white" href="mailto:{{$setting->email}}">{{$setting->email}}</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="social-media">
+                    <div class="col-md-4 pb-5 pb-md-0 ">
+                        <div class="social-media d-flex justify-content-between d-md-block">
 
-                        @if($setting->facebook)
-                        <a href="{{$setting->facebook}}" target="_blank" class="social-media__item">
-                            <div class="social-media__icon facebook"><i class="fab fa-facebook-f"></i></div>
-                            <div class="social-media__text">Facebook</div>
-                        </a>
-                        @endif
+                            @if($setting->facebook)
+                            <a href="{{$setting->facebook}}" target="_blank" class="social-media__item">
+                                <div class="social-media__icon facebook"><i class="fab fa-facebook-f"></i></div>
+                                <div class="social-media__text d-none d-md-block">Facebook</div>
+                            </a>
+                            @endif
 
-                        @if($setting->twitter)
-                        <a href="{{$setting->twitter}}" target="_blank" class="social-media__item">
-                            <div class="social-media__icon twitter"><i class="fab fa-twitter"></i></div>
-                            <div class="social-media__text">Twitter</div>
-                        </a>
-                        @endif
+                            @if($setting->twitter)
+                            <a href="{{$setting->twitter}}" target="_blank" class="social-media__item">
+                                <div class="social-media__icon twitter"><i class="fab fa-twitter"></i></div>
+                                <div class="social-media__text d-none d-md-block">Twitter</div>
+                            </a>
+                            @endif
 
-                        @if($setting->instragram)
-                        <a href="{{$setting->instragram}}" target="_blank" class="social-media__item">
-                            <div class="social-media__icon linkedin"><i class="fab fa-instagram"></i></div>
-                            <div class="social-media__text">Instagram</div>
-                        </a>
-                        @endif
+                            @if($setting->instragram)
+                            <a href="{{$setting->instragram}}" target="_blank" class="social-media__item">
+                                <div class="social-media__icon linkedin"><i class="fab fa-instagram"></i></div>
+                                <div class="social-media__text d-none d-md-block">Instagram</div>
+                            </a>
+                            @endif
 
-                        @if($setting->youtube)
-                        <a href="{{$setting->youtube}}" target="_blank" class="social-media__item">
-                            <div class="social-media__icon youtube"><i class="fab fa-youtube"></i></div>
-                            <div class="social-media__text">Youtube Channel</div>
-                        </a>
-                        @endif
+                            @if($setting->youtube)
+                            <a href="{{$setting->youtube}}" target="_blank" class="social-media__item">
+                                <div class="social-media__icon youtube"><i class="fab fa-youtube"></i></div>
+                                <div class="social-media__text d-none d-md-block">Youtube Channel</div>
+                            </a>
+                            @endif
 
-                        @if($setting->email)
-                        <a href="{{$setting->email}}" target="_blank" class="social-media__item">
-                            <div class="social-media__icon google"><i class="fas fa-envelope"></i></div>
-                            <div class="social-media__text">Email</div>
-                        </a>
-                        @endif
+                            @if($setting->email)
+                            <a href="{{$setting->email}}" target="_blank" class="social-media__item">
+                                <div class="social-media__icon google"><i class="fas fa-envelope"></i></div>
+                                <div class="social-media__text d-none d-md-block">Email</div>
+                            </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -158,7 +169,13 @@
 
     <!-- copyright -->
     <!-- <div class="text-light text-center py-4" style="background: #1e1e1e;">Copyright &copy 2021 Shopritefoodbd.com All Right Reserved <a href="https://branexit.com/" style="color: #F8432B;">Branexit</a></div> -->
-
+<div class="d-md-none fixed-bottom text-dark bg-white footer_bottom">
+    <div class="d-flex justify-content-around p-3">
+        <i class="fas fa-home"></i>
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-id-card-alt"></i>
+    </div>
+</div>
 
 </footer>
 
@@ -215,7 +232,7 @@
                     @if (Auth('guest')->user())
                     <a href="{{ url('/Checkout') }}" class="btn btn-dark d-block"><i class="fa fa-shopping-basket" uk-tooltip="title: Remove; pos:bottom"></i>&nbsp;Checkout Order</a>
                     @else
-                    <a href="{{ url('/user-login') }}" class="btn btn-dark d-block"><i class="fa fa-user" uk-tooltip="title: Remove; pos:bottom"></i>&nbsp;Login Account</a>   
+                    <a href="{{ url('/user-login') }}" class="btn btn-dark d-block"><i class="fa fa-user" uk-tooltip="title: Remove; pos:bottom"></i>&nbsp;Login Account</a>
                     @endif
 
                     <br><br>
@@ -333,7 +350,7 @@
         var id = $(this).data('id');
         $("#customer_selected_color").val($this.text());
         $(".select_color").removeClass("selected_color");
-        $(this).addClass("selected_color"); 
+        $(this).addClass("selected_color");
 
 
     });
@@ -346,7 +363,7 @@
         $("#customer_selected_size").val($this.text());
         console.log($this)
         $(".select_size").removeClass("selected_size");
-        $(this).addClass("selected_size"); 
+        $(this).addClass("selected_size");
 
     })
 
